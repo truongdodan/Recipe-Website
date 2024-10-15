@@ -41,12 +41,12 @@ function openPopup(popupContent, icon) {
     popupContent.style.display = "block"
     popupContent.classList.add("open")
 
-    icon.src = "../icon/downArrow.svg"
+    icon.src = "icon/downArrow.svg"
 }
 
 function closePopup(popupContent, icon) {
     popupContent.style.display = "none"
     popupContent.classList.remove("open")
 
-    icon.src = "../icon/upArrow.svg"
+    icon.src = "icon/upArrow.svg"
 }
