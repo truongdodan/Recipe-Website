@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            line-height: 1.5;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slider {
+            background-color: aqua;
+            width:80%;
+            height: 200px;
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            overflow-x: scroll;
+            /* cursor: grab; */
+        }
+        .slider::-webkit-scrollbar {
+            display: none;
+        }
+        .innerSlider {
+            width: 500%;
+            height: 100%;
+            display: flex;
+            /* gap: 1rem; */
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* pointer-events: none; */
+            /* transform: translate(200px, 0px); */
+            transition: 500ms ease-in-out;
+        }
+        .innerSlider div {
+            width: 25%;
+            background-color: rgb(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        div a {
+            text-decoration: none;
+            color: white;
+        }
+        button {
+            width: 10rem;
+            height: 5rem;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="innerSlider">
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 1</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 2</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 3</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 4</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 5</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 6</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 7</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 1</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 2</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 3</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 4</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 5</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 6</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 7</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 1</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 2</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 3</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 4</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 5</a></div>
+            <div><a href="https://delishkitchen.tv/recipes/208033962012967968">This is box 6</a></div>
+        </div>
+    </div>
+    <button id="b1">move forth</button>
+    <button id="b2">move back</button>
+    <!-- <script>
+        const slider = document.querySelector(".slider")
+        const innerSlider = document.querySelector(".innerSlider")
+        let startX
+        let pressed = false
+        
+        slider.addEventListener("mousedown", (e) => {
+            pressed = true
+            slider.style.cursor = "grabbing"
+            startX = e.offsetX - innerSlider.offsetLeft;            
+        })
+
+        slider.addEventListener("mousemove", (e) => {
+            if(!pressed) return;
+            e.preventDefault();
+            innerSlider.style.left = `${e.offsetX - startX}px`;
+
+            checkBoundary()
+        })
+
+        slider.addEventListener("mouseup", (e) => {
+            pressed = false
+            slider.style.cursor = "grab"
+        })
+
+        slider.addEventListener("mouseleave", (e) => {
+            pressed = false
+            slider.style.cursor = "grab"
+        })
+
+        function checkBoundary() {
+            let outer = slider.getBoundingClientRect()
+            let inner = innerSlider.getBoundingClientRect()
+
+            if(parseInt(innerSlider.style.left) > 0) {
+                innerSlider.style.left = '0px'
+            } 
+            else if(true) {
+                innerSlider.style.right = '0px'
+            }
+        }
+
+    </script> -->
+    <script>
+        const btn = document.querySelector("button#b1")
+        const btn2 = document.querySelector("button#b2")
+        const innerSlider = document.querySelector(".innerSlider")
+        let x = 0
+        let moveTime = 0
+
+        btn.addEventListener("click", (e) => {
+            checkBoundary(btn)
+            console.log("lol");
+            document.querySelector(".innerSlider").style.transform = `translate(${x+=5}%, 0px)`
+            x++;
+        })
+        btn2.addEventListener("click", (e) => {
+            checkBoundary(btn2)
+            console.log("lol");
+            document.querySelector(".innerSlider").style.transform = `translate(${x-=5}%, 0px)`
+            x--;
+        })
+        
+        function checkBoundary(button){
+            if(moveTime < 1 || moveTime > 15 ) {
+                btn.disabled = true
+                return
+            }
+            btn.disabled = false
+        }
+
+        checkBoundary(btn)
+    </script>
+</body>
+</html>
