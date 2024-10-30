@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
-    <link rel="stylesheet" href="./css/CatagorysFilter.css">
-    <script src="./js/CatagorysDetail.js" defer></script>
+    <title>User</title>
+    <link rel="stylesheet" href="./css/User.css">
+    <script src="./js/User.js" defer></script>
 </head>
 <body>
     <header>
@@ -196,20 +196,22 @@
         </div>
     </header>
     <main>
-        <div class="anchor-wrapper">
-            <div class="line"></div>
-            <ul>
-                <li><a href="#">Trang Chu</a></li>
-                <li>></li>
-                <li><a href="#">Thit ga</a></li>
-                <li>></li>
-                <li><a href="#">Ga ran phu muoi tieu</a></li>
-            </ul>
-            <div class="line"></div>
+        <div class="user-infor-wrapper">
+            <a class="user-image">
+                <img src="./image/user.png" alt="user image">
+            </a>
+            <div class="user-infor">
+                <p id="userName">dantRuong do</p>
+                <p class="userId">Id: user@128821</p>
+            </div>
         </div>
-        <div class="by-catagory-recipes-wrapper">
-            <h2>Search result for 「<span id="catagory-title">Chicken</span>」</h2>
-            <ul class="by-catagory-recipes-list">
+        <div class="add-recipe-button-wrapper"><input type="button" id="addRecipeButton" class="btn" value="Thêm công thức"></div>
+        <div class="recipes-list-wrapper">
+            <div class="menu-tab">
+                <input type="button" id="saved-recipe-tab" value="Công thức đã lưu" class="selected" onclick="toggleTab(event)">
+                <input type="button" id="created-recipe-tab" value="Công thức đã tạo" class="" onclick="toggleTab(event)">
+            </div>
+            <ul class="recipes-list">
                 <li>
                     <a href="#">
                         <img src="./image/dui-ga-chien-gion.png" alt="by catagory recipe">
